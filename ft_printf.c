@@ -6,7 +6,7 @@
 /*   By: bepinhei <bepinhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 09:23:19 by bepinhei          #+#    #+#             */
-/*   Updated: 2024/08/11 11:23:37 by bepinhei         ###   ########.fr       */
+/*   Updated: 2024/08/12 13:09:38 by bepinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_format(char c, va_list args)
 	else if (c == 's')
 		result += ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		result += ft_putptr(va_arg(args, unsigned long));
+		result += ft_putptr(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
 		result += ft_putnbr(va_arg(args, int));
 	else if (c == 'u')

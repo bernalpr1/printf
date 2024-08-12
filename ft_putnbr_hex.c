@@ -1,55 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepinhei <bepinhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 09:23:30 by bepinhei          #+#    #+#             */
-/*   Updated: 2024/08/12 13:04:07 by bepinhei         ###   ########.fr       */
+/*   Created: 2024/08/11 09:23:26 by bepinhei          #+#    #+#             */
+/*   Updated: 2024/08/12 10:09:08 by bepinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int i)
+int	ft_putnbr_hex(unsigned int n, char format)
 {
-	int result;
-	int nbr;
-	int divisor;
-	int digito;
+	int		result;
+	char	*base;
+	unsigned int	divisor;
+	char	digit;
 
-	divisor = 1;
 	result = 0;
+	if (format == 'x')
+		base = "0123456789abcdef";
+	if (format == 'X')
+		base = "0123456789ABCDEF";
+	divisor = 1;
+	while (n / divisor >= 16)
+		divisor *= 16;
 
-	if(i == -2147483648)
-	{
-		result += write(1, "-2147483648", 11);
-		return (result);
-	}
-	if (i == 0)
-    {
-        result += ft_putchar('0');
-        return (result);
-    }
-	if (i < 0)
-	{
-		result += ft_putchar('-');
-		i = -i ;
-	}
-	nbr = i;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		divisor *= 10;
-	}
 	while (divisor > 0)
 	{
-		digito = i/divisor + '0';
-		ft_putchar(digito);
-		i %= divisor;
-		divisor /= 10;
-		result++;
+		digit = base[(n / divisor) % 16];
+		result += ft_putchar(digit);
+		divisor /= 16;
 	}
+
 	return (result);
 }
