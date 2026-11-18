@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bepinhei <bepinhei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berpinhe <berpinhe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 09:11:59 by bepinhei          #+#    #+#             */
-/*   Updated: 2024/08/12 10:45:47 by bepinhei         ###   ########.fr       */
+/*   Created: 2026/11/18 01:21:02 by berpinhe          #+#    #+#             */
+/*   Updated: 2026/11/18 18:54:42 by berpinhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
-int	ft_printf(const char *, ...);
-int	ft_putnbr(int nbr);
-int	ft_putnbr_char(unsigned int n);
-int	ft_putnbr_hex(unsigned int n, char format);
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-int	ft_putptr(void *ptr);
+int	ft_printf(char const *s, ...);
+int	ft_dig(long n);
+int	ft_c(int c);
+int	ft_str(char *str);
+int	ft_ptr(void *ptr);
+int	ft_hex(unsigned long n, char flag);
 
 #endif
